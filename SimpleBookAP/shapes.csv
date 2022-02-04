@@ -1,0 +1,3 @@
+shapeID,label,comment,target,targetType,Open,mandatory,severity,Note
+BookShape,Book,A book,sdo:Book,class,FALSE,TRUE,Violation,
+AuthorShape,Author,A person who wrote a book,foaf:Person,subjectsOf,FALSE,FALSE,Violation,

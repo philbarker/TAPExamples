@@ -1,0 +1,14 @@
+# Invalid instance
+@prefix dct:  <http://purl.org/dc/terms/>                      # DCMI Metadata Terms
+@prefix foaf: <http://xmlns.com/foaf/0.1/>                     # Friend of a Friend
+@prefix sdo:  <https://schema.org/>                            # Schema.org
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>    # RDF
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#>              # XSD: use for data types
+ 
+<https://www.wikidata.org/entity/Q19870535> a sdo:Book ;       # no title
+    dct:creator <https://www.wikidata.org/entity/Q4944293> ;
+    sdo:isbn "01-2345-6789123"^^xsd:string .                   # too long 
+
+<https://www.wikidata.org/entity/Q4944293> a sdo:Person ;      # wrong type
+   foaf:givenName "Elizabeth"^^rdf:langString ;                # wrong datatype
+   foaf:familyName "David"^^rdf:langString .                   # wrong datatype

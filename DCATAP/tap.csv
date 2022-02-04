@@ -1,0 +1,143 @@
+shapeID,propertyID,propertyLabel,mandatory,repeatable,valueNodeType,valueDatatype,valueConstraint,valueConstraintType,ValueShape,note,severity
+CatalogueShape,rdf:type,type,TRUE,FALSE,IRI,,dcat:Catalog,,,,Violation
+,dct:description,description,TRUE,TRUE,Literal,,,,,This property contains a free-text account of the Catalogue. This property can be repeated for parallel language versions of the description. For further information on multilingual issues,Violation
+,dct:publisher,publisher,TRUE,FALSE,IRI,,,,AgentShape,This property refers to an entity (organisation) responsible for making the Catalogue available.,Violation
+,dct:title,Title,TRUE,TRUE,Literal,,,,,This property contains a name given to the Catalogue. This property can be repeated for parallel language versions of the name.,Violation
+,dcat:dataset,dataset,FALSE,TRUE,IRI,,,,DatasetShape,This property links the Catalogue with a Dataset that is part of the Catalogue.,Violation
+,dcat:service,service,FALSE,TRUE,IRI,,,,DataServiceShape,This property refers to a site or end-point that is listed in the catalog.,Violation
+,foaf:homepage,homepage,FALSE,FALSE,IRI,,,,DocumentShape,This property refers to a web page that acts as the main page for the Catalogue.,Violation
+,dct:language,language,FALSE,TRUE,IRI,,,,LinguisticSystemShape,This property refers to a language used in the textual metadata describing titles,Violation
+,dct:license,licence,FALSE,FALSE,IRI,,,,LicenseShape,This property refers to the licence under which the Catalogue can be used or reused.,Violation
+,dct:issued,release date,FALSE,FALSE,Literal,xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth,,,,This property contains the date of formal issuance,Violation
+,dct:spatial,spatial - geographic,FALSE,TRUE,IRI,,,,LocationShape,This property refers to a geographical area covered by the Catalogue.,Violation
+,dcat:theme,theme,FALSE,TRUE,IRI,,,,ConceptShape,,
+,dcat:themeTaxonomy,theme taxonomy,FALSE,TRUE,IRI,,,,ConceptSchemeShape,This property refers to a knowledge organization system used to classify the Catalogue's Datasets.,Violation
+,dct:modified,update - modification date,FALSE,FALSE,Literal,xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth,,,,This property contains the most recent date on which the Catalogue was modified.,Violation
+,dct:hasPart,has part,FALSE,TRUE,IRI,,,,CatalogueShape,This property refers to a related Catalogue that is part of the described Catalogue,Violation
+,dct:isPartOf,is part of,FALSE,FALSE,IRI,,,,CatalogueShape,This property refers to a related Catalogue in which the described Catalogue is physically or logically included.,Violation
+,dcat:record,record,FALSE,TRUE,IRI,,,,CatalogRecordShape,This property refers to a Catalogue Record that is part of the Catalogue,Violation
+,dct:rights,Rights,FALSE,FALSE,IRI,,,,RightsShape,This property refers to a statement that specifies rights associated with the Catalogue.,Violation
+,dcat:catalog,catalogue,FALSE,TRUE,IRI,,,,CatalogueShape,This property refers to a catalog whose contents are of interest in the context of this catalog,Violation
+,dct:creator,creator,FALSE,FALSE,IRI,,,,AgentShape,This property refers to the  entity primarily responsible for producing the catalogue,Violation
+,,,,,,,,,,,
+CatalogRecordShape,rdf:type,type,TRUE,FALSE,IRI,,dcat:CatalogRecord,,,,
+,foaf:primaryTopic,primary topic,TRUE,FALSE,IRI,,,,DatasetShape DataServiceShape CatalogueShape,This property links the Catalogue Record to the Dataset,Violation
+,dct:modified,update/ modification date,TRUE,FALSE,Literal,xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth,,,,This property contains the most recent date on which the Catalogue entry was changed or modified.,Violation
+,dct:conformsTo,application profile,FALSE,FALSE,IRI,,,,StandardShape,This property refers to an Application Profile that the Dataset’s metadata conforms to,Violation
+,adms:status,change type,FALSE,FALSE,IRI,,,,ConceptShape,This property refers to the type of the latest revision of a Dataset's entry in the Catalogue.,Violation
+,dct:issued,listing date,FALSE,FALSE,Literal,xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth,,,,This property contains the date on which the description of the Dataset was included in the Catalogue.,Violation
+,dct:description,description,FALSE,TRUE,Literal,,,,,This property contains a free-text account of the record. This property can be repeated for parallel language versions of the description.,Violation
+,dct:language,language,FALSE,TRUE,IRI,,,,LinguisticSystemShape,This property refers to a language used in the textual metadata describing titles,Violation
+,dct:source,source metadata,FALSE,FALSE,IRI,,,,CatalogRecordShape,This property refers to the original metadata that was used in creating metadata for the Dataset,Violation
+,dct:title,Title,FALSE,TRUE,Literal,,,,,This property contains a name given to the Catalogue Record. This property can be repeated for parallel language versions of the name.,Violation
+,,,,,,,,,,,
+AgentShape,rdf:type,,TRUE,FALSE,IRI,,foaf:Agent,,,,
+,foaf:name,Name,TRUE,TRUE,Literal,,,,,,Violation
+,dct:type,Type,FALSE,FALSE,IRI,,,,ConceptShape,,Violation
+,,,,,,,,,,,
+ConceptShape,rdf:type,,TRUE,FALSE,IRI,,skos:Concept,,,,
+,skos:prefLabel,Preferred Label,TRUE,TRUE,Literal,xsd:string,,,,,Violation
+,,,,,,,,,,,
+ConceptSchemeShape,dct:title,Scheme name,TRUE,TRUE,,,,,,,Violation
+,rdf:type,type,TRUE,FALSE,IRI,,skos:ConceptScheme,,,,
+,,,,,,,,,,,
+ChecksumShape,rdf:type,,TRUE,FALSE,IRI,,spdx:Checksum,,,,
+,spdx:algorithm,algorithm,TRUE,FALSE,IRI,,spdx:checksumAlgorithm_sha1,,,,Violation
+,spdx:checksumValue,checksum value,TRUE,FALSE,Literal,xsd:hexBinary,,,,,Violation
+,,,,,,,,,,,
+DataServiceShape,rdf:type,,TRUE,FALSE,IRI,,dcat:DataService,,,,
+,dcat:endpointURL,Endpoint URL,TRUE,TRUE,IRI,,,,,,Violation
+,dct:title,Service name,TRUE,TRUE,Literal,,,,,,Violation
+,dcat:endpointDescription,Endpoint description,FALSE,TRUE,IRI BNODE Literal,,,,,,Violation
+,dcat:servesDataset,Serves dataset,FALSE,TRUE,IRI,,,,DatasetShape,,Violation
+,dct:accessRights,Access rights,FALSE,FALSE,IRI,,,,RightsShape,,Violation
+,dct:description,Service description,FALSE,TRUE,Literal,,,,,,Violation
+,dct:license,Service license,FALSE,FALSE,IRI BNODE,,,,LicenseShape,,Violation
+,,,,,,,,,,,
+DatasetShape,rdf:type,,TRUE,FALSE,IRI,,dcat:Dataset,,,,
+,dct:description,Dataset description,TRUE,TRUE,Literal,,,,,,Violation
+,dct:title,Dataset title,TRUE,TRUE,Literal,,,,,,Violation
+,dcat:contactPoint,Contact point,FALSE,TRUE,IRI,,,,KindShape,,Violation
+,dcat:distribution,Distribution,FALSE,TRUE,IRI,,,,DistributionShape,,Violation
+,dcat:keyword,Keyword,FALSE,TRUE,Literal,,,,,,Violation
+,dct:publisher,Publisher,FALSE,FALSE,IRI,,,,AgentShape,,Violation
+,dct:spatial,Spatial,FALSE,TRUE,IRI,,,,LocationShape,,Violation
+,dct:temporal,Temporal,FALSE,TRUE,IRI,,,,PeriodOfTimeShape,,Violation
+,dcat:theme,Theme,FALSE,TRUE,IRI,,,,ConceptShape,,Violation
+,dct:accessRights,Accessrights,FALSE,FALSE,IRI,,,,RightsShape,,Violation
+,dct:creator,creator,FALSE,FALSE,IRI,,,,AgentShape,,Violation
+,dct:conformsTo,Standard,FALSE,TRUE,IRI,,,,StandardShape,,Violation
+,foaf:page,documentation,FALSE,TRUE,IRI,,,,DocumentShape,,
+,dct:accrualPeriodicity,frequency,FALSE,FALSE,IRI,,,,FrequencyShape,,Violation
+,dct:hasVersion,has version,FALSE,TRUE,IRI,,,,DatasetShape,,Violation
+,dct:identifier,identifier,FALSE,TRUE,Literal,,,,,,Violation
+,dct:isReferencedBy,referenced by,FALSE,TRUE,IRI,,,,,,Violation
+,dct:isVersionOf,version of,FALSE,TRUE,IRI,,,,DatasetShape,,Violation
+,dcat:landingPage,landing page,FALSE,TRUE,IRI,,,,DocumentShape,,Violation
+,dct:language,language,FALSE,TRUE,IRI,,,,LinguisticSystemShape,,Violation
+,adms:identifier,other identifier,FALSE,TRUE,IRI,,,,IdentifierShape,,Violation
+,dct:provenance,provenance,FALSE,TRUE,IRI,,,,ProvenanceStatementShape,,Violation
+,prov:qualifiedAttribution,qualified attribution,FALSE,TRUE,IRI,,,,AttributionShape,,Violation
+,dcat:qualifiedRelation,Qualified relation,FALSE,TRUE,IRI,,,,RelationshipShape,,Violation
+,dct:relation,Relation,FALSE,TRUE,IRI,,,,,,Violation
+,dct:issued,release date,FALSE,FALSE,Literal,xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth,,,,,Violation
+,adms:sample,sample,FALSE,TRUE,IRI,,,,DistributionShape,,Violation
+,dct:source,source,FALSE,TRUE,IRI,,,,DatasetShape,,Violation
+,dcat:spatialResolutionInMeters,Spatial resolution in meters,FALSE,TRUE,Literal,xsd:decimal,,,,,Violation
+,dcat:temporalResolution,Temporal resolution,FALSE,TRUE,Literal,xsd:duration,,,,,Violation
+,dct:type,Type,FALSE,FALSE,IRI,,,,ConceptShape,,Violation
+,dct:modified,Update date,FALSE,FALSE,Literal,xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth,,,,,Violation
+,owl:versionInfo,Version,FALSE,FALSE,Literal,,,,,,Violation
+,adms:versionNotes,Version notes,FALSE,TRUE,Literal,,,,,,Violation
+,prov:wasGeneratedBy,Generated by,FALSE,TRUE,IRI,,,,,,Violation
+,,,,,,,,,,,
+DistributionShape,rdf:type,,TRUE,FALSE,IRI,,dcat:Distribution,,,,
+,dcat:accessURL,Access URL,TRUE,TRUE,IRI,,,,,,Violation
+,dcatap:availability,Availability,FALSE,FALSE,IRI,,,,ConceptShape,,Violation
+,dct:format,Format,FALSE,FALSE,IRI,,,,MediaTypeShape,,Violation
+,dct:license,License,FALSE,FALSE,IRI BNODE,,,,LicenseShape,,Violation
+,dcat:accessService,Access service,FALSE,TRUE,IRI,,,,DataServiceShape,,Violation
+,dcat:byteSize,Byte size,FALSE,FALSE,Literal,xsd:decimal,,,,,Violation
+,spdx:checksum,Checksum,FALSE,FALSE,IRI,,,,ChecksumShape,,Violation
+,dcat:compressFormat,Compress format,FALSE,FALSE,IRI,,,,MediaTypeShape,,Violation
+,foaf:page,documentation,FALSE,TRUE,IRI,,,,DocumentShape,,Violation
+,dcat:downloadURL,Download URL,FALSE,TRUE,IRI,,,,,,Violation
+,odrl:hasPolicy,has policy,FALSE,FALSE,IRI,,,,PolicyShape,,Violation
+,dcat:mediaType,Media type,FALSE,FALSE,IRI,,,,MediaTypeShape,,Violation
+,dcat:packageFormat,Package format,FALSE,FALSE,IRI,,,,MediaTypeShape,,Violation
+,dct:issued,Release date,FALSE,FALSE,Literal,xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth,,,,,Violation
+,dct:rights,Rights statement,FALSE,FALSE,IRI,,,,RightsShape,,Violation
+,dcat:spatialResolutionInMeters,Spatial resolution in meters,FALSE,TRUE,Literal,xsd:decimal,,,,,Violation
+,adms:status,Status,FALSE,FALSE,IRI,,,,ConceptShape,,Violation
+,dcat:temporalResolution,Temporal resolution,FALSE,TRUE,Literal,xsd:duration,,,,,Violation
+,dct:title,Title,FALSE,TRUE,Literal,,,,,,Violation
+,dct:modified,Update date,FALSE,FALSE,Literal,xsd:date xsd:dateTime xsd:gYear xsd:gYearMonth,,,,,Violation
+,dct:conformsTo,Conforms to,FALSE,TRUE,IRI,,,,StandardShape,,Violation
+,dct:language,Language,FALSE,TRUE,IRI,,,,LinguisticSystemShape,,Violation
+,,,,,,,,,,,
+IdentifierShape,skos:notation,,TRUE,FALSE,Literal,,,,,,Violation
+,,,,,,,,,,,
+,,,,,,,,,,,
+LicenseShape,rdf:type,Class,TRUE,FALSE,IRI,,dct:LicenseDocument,,,,Violation
+,dct:type,Type,FALSE,TRUE,IRI,,,,ConceptShape,,Violation
+,,,,,,,,,,,
+LocationShape,dcat:bbox,Bbox,FALSE,FALSE,Literal,,,,,,Warning
+,dcat:centroid,Centroid,FALSE,FALSE,Literal,,,,,,Warning
+,locn:geometry,Geometry,FALSE,FALSE,Literal,,,,,,Violation
+,rdf:type,Type,TRUE,FALSE,IRI,,dct:Location,,,,Violation
+,,,,,,,,,,,
+PeriodOfTimeShape,rdf:type,,TRUE,FALSE,IRI,,dct:PeriodOfTime,,,,
+,dcat:startDate,Start date,FALSE,FALSE,Literal,,,,,,Warning
+,dcat:endDate,End date,FALSE,FALSE,Literal,,,,,,Warning
+,time:hasBeginning,Has Beginning,FALSE,FALSE,IRI,,,,,,Violation
+,time:hasEnd,Has end,FALSE,FALSE,IRI,,,,,,Violation
+,,,,,,,,,,,
+RelationshipShape,rdf:type,,TRUE,FALSE,IRI,,dcat:Relationship,,,,
+,dct:relation,Relation,TRUE,TRUE,Literal,,,,,,Violation
+,dcat:hadRole,Had role,TRUE,TRUE,IRI,,,,RoleShape,,Violation
+,,,,,,,,,,,
+DocumentShape,rdf:type,type,TRUE,FALSE,IRI,,foaf:Document,,,,Violation
+,,,,,,,,,,,
+RightsShape,rdf:type,type,TRUE,FALSE,IRI,,dct:RightsStatement,,,,Violation
+,,,,,,,,,,,
+FrequencyShape,rdf:type,type,TRUE,FALSE,IRI,,dct:Frequency,,,,

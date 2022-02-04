@@ -1,0 +1,7 @@
+# minimal invalid instance
+@prefix dct:  <http://purl.org/dc/terms/>                      # DCMI Metadata Terms
+@prefix sdo:  <https://schema.org/>                            # Schema.org
+ 
+<https://www.wikidata.org/entity/Q19870535> a sdo:Booo ;  # Typo in type
+    dct:title "A Book of Mediterranean Food"@en .
+
